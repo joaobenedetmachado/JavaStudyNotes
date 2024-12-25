@@ -13,47 +13,52 @@ public class Main{
             System.out.println("2 - Listar Tarefas");
             System.out.println("3 - Excluir Tarefas");
             System.out.println("4 - Editar");
+            System.out.println("5 - Sair do sistema");
 
             String Escolha = Scanner.nextLine();
 
-            if (Escolha.equals("1")) {
-                System.out.println("Nova tarefa: ");
-                String Tarefa = Scanner.nextLine();
-                Tarefas.add(Tarefa);
+            switch (Escolha) {
+                case "1":
+                    System.out.println("Nova tarefa: ");
+                    String Tarefa = Scanner.nextLine();
+                    Tarefas.add(Tarefa);
+                    break;
+                case "2":
+                    System.out.println("-*-*-*-*-*-*-*-*-*-*");
+                    for (int i = 0; i < Tarefas.size(); i++) {
+                        System.out.println((i + 1) + " - " + Tarefas.get(i));
+                    }
+                    System.out.println("-*-*-*-*-*-*-*-*-*-*");
+                    break;
+                case "3":
+                    System.out.println("Qual seria a posicao do elemento para ser excluido? ");
+                    int posicao = Scanner.nextInt() + 1;
+                    if (posicao > Tarefas.size()) {
+                        System.out.println("Posicao nao encontrada");
+                    } else {
+                        Tarefas.remove(posicao);
+                    }
+                    break;
+                case "4":
+                    System.out.println("qual seria a posicao para alterar");
+                    int posicaoEdit = Scanner.nextInt() - 1;
+                    Scanner.nextLine();
+                    System.out.println("novo conteudo para " + posicaoEdit + 1);
+
+
+                    String Novoconteudo = Scanner.nextLine();
+
+                    Tarefas.set(posicaoEdit, Novoconteudo);
+                    break;
+                case "5":
+                    System.out.println("Saindo do sistema...");
+                    Scanner.close();
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Opçao nao encontrada!");
             }
 
-            else if (Escolha.equals("2")) {
-                System.out.println("-*-*-*-*-*-*-*-*-*-*");
-                for (int i = 0; i < Tarefas.size() ; i++) {
-                    System.out.println( (i + 1 ) + " - " + Tarefas.get(i));
-                }
-                System.out.println("-*-*-*-*-*-*-*-*-*-*");
-            }
-
-            else if (Escolha.equals("3")) {
-                System.out.println("Qual seria a posicao do elemento para ser excluido? ");
-                int posicao = Scanner.nextInt() + 1 ;
-                if (posicao > Tarefas.size()){
-                    System.out.println("Posicao nao encontrada");
-                } else {
-                    Tarefas.remove(posicao);
-                }
-
-            } else if (Escolha.equals("4")) {
-                System.out.println("qual seria a posicao para alterar");
-                int posicao = Scanner.nextInt() - 1;
-                Scanner.nextLine();
-                System.out.println("novo conteudo para " + posicao + 1);
-
-                String Novoconteudo = Scanner.nextLine();
-
-                Tarefas.set(posicao, Novoconteudo);
-            } else if (Escolha.equals("5")){
-                System.out.println("Saindo do sistema...");
-                System.exit(0);
-            } else {
-                System.out.println("Opçao nao encontrada!");
-            }
         } while (true);
     }
 }
