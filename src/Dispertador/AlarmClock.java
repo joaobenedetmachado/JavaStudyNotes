@@ -37,8 +37,6 @@ public class AlarmClock implements Runnable{
                 System.out.println("Thread foi interrompida");
             }
         }
-        System.out.println("\nBARULHO ALARM");
-        Toolkit.getDefaultToolkit().beep();
         PlaySound(filePathSound);
     }
     private void PlaySound(String filePathSound) {
