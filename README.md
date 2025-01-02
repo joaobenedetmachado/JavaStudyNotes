@@ -1,4 +1,4 @@
-# Exercícios de Java POO - Curso em Vídeo
+# Exercícios de Java POO - Udemy
 
 Este repositório contém a solução dos exercícios propostos durante o curso de **Java POO** ministrado pelo **Curso em Vídeo**. O objetivo deste projeto é consolidar os conhecimentos adquiridos ao longo do curso através da prática de programação orientada a objetos em Java.
 
