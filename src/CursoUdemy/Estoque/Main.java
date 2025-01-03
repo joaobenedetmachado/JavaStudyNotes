@@ -7,12 +7,11 @@ public class Main {
         x1.price = 2.50;
         x1.addProduct(10);
         x1.addProduct(10);
-        x1.getStatus();
+        System.out.println(x1);
         x1.TotalValueInStock();
         x1.removeProduct(5);
-        x1.removeProduct(5);
-        x1.removeProduct(20);
-
+        System.out.println(x1);
+        x1.TotalValueInStock();
 
     }
 }

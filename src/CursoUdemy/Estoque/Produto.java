@@ -19,9 +19,7 @@ public class Produto {
         }
     }
 
-    public void getStatus() {
-        System.out.println("Nome: " + this.nome);
-        System.out.println("Preco total: " + this.price);
-        System.out.println("Quantidade: " + this.quantidade);
+    public String toString() {
+        return "Nome: " + this.nome + " Preco total: " + this.TotalValueInStock() + " Quantidade: " + this.quantidade;
     }
 }
