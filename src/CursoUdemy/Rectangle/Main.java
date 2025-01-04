@@ -9,5 +9,6 @@ public class Main {
         r1.height = sc.nextDouble();
         r1.width = sc.nextDouble();
         System.out.println(r1);
+
     }
 }

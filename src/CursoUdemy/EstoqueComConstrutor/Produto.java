@@ -1,10 +1,21 @@
-package CursoUdemy.Estoque;
+package CursoUdemy.EstoqueComConstrutor;
 
 public class Produto {
     public String nome;
     public double price;
     public int quantidade;
 
+    public Produto(String nome, double price, int quantidade) {
+        this.quantidade = quantidade;
+        this.nome = nome;
+        this.price = price;
+    }
+
+    public Produto(String nome, double price) {
+        this.quantidade = 30;
+        this.nome = nome;
+        this.price = price;
+    }
 
     public double TotalValueInStock() {
         return this.price * this.quantidade;
