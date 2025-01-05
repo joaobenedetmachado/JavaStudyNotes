@@ -9,7 +9,7 @@ public class Main {
         System.out.print("Enter your ID: ");
         int ID = sc.nextInt();
         sc.nextLine();
-        System.out.print("Enter your Name:");
+        System.out.print("Enter your Name: ");
         String nome = sc.nextLine().trim();
         System.out.print("Is there a inital deposit? [Y/N]");
         String InitialDeposito = sc.nextLine();

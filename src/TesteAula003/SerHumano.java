@@ -3,10 +3,10 @@ package TesteAula003;
 public class SerHumano {
     private String Nome;
     private Integer Idade;
-    private float Altura;
+    private double Altura;
     private String Sexo;
 
-    public SerHumano(String nome, Integer idade, float altura, String sexo) {
+    public SerHumano(String nome, Integer idade, double altura, String sexo) {
         Nome = nome;
         Idade = idade;
         Altura = altura;
@@ -21,7 +21,7 @@ public class SerHumano {
         return Idade;
     }
 
-    public float getAltura() {
+    public double getAltura() {
         return Altura;
     }
 
@@ -37,7 +37,7 @@ public class SerHumano {
         Idade = idade;
     }
 
-    public void setAltura(float altura) {
+    public void setAltura(double altura) {
         Altura = altura;
     }
 
