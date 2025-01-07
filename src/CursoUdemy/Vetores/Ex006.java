@@ -12,7 +12,9 @@ public class Ex006 {
 
         for (int i = 0; i < n; i++) {
             System.out.println("RESERVA " + (i+ 1));
+            System.out.print("Nome: ");
             String nome = sc.nextLine();
+            System.out.print("Email: ");
             String email = sc.nextLine();
             int quarto = sc.nextInt();
             sc.nextLine();
