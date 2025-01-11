@@ -17,8 +17,10 @@ public class Coments {
 
     @Override
     public String toString() {
-        return "Coments{" +
-                "coment='" + coment + '\'' +
-                '}';
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(this.coment);
+
+        return sb.toString();
     }
 }
