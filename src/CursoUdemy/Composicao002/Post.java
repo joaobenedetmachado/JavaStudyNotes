@@ -66,7 +66,7 @@ public class Post {
         sb.append(title + "\n");
         sb.append(content + "\n");
         sb.append(likes + "\n");
-        sb.append(moment + "\n");
+        sb.append(moment);
         for (Coments c : listComents) {
             System.out.println(c);
         }
