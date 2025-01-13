@@ -3,7 +3,7 @@ package CursoUdemy.Heranca;
 public class Account {
     private Integer number;
     private String holder;
-    private double balance;
+    protected double balance;
 
 
     public Integer getNumber() {
