@@ -36,15 +36,21 @@ public class Account {
     }
 
     public void withdraw(double value) {
-        if (value >= balance) {
-            this.balance -= value;
-        } else {
-            System.out.println("erro, valor nao esta na conta");
-        }
+            this.balance = balance - 5 - value ;
+
     }
 
     public void deposit(double value) {
         this.balance += value;
     }
 
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "number=" + number +
+                ", holder='" + holder + '\'' +
+                ", balance=" + balance +
+                '}';
+    }
 }

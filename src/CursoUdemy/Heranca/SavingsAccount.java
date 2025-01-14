@@ -23,4 +23,21 @@ public class SavingsAccount extends Account {
     public void updateBalanece() {
         balance += balance * InterestRate;
     }
+
+    @Override // o override é chamado quando na superclasse ja existe um metodo com o mesmo nome, porem na subclasse tera um compoertamento diferente
+    public void withdraw(double value) {
+         if (value < balance) {
+             balance -= value;
+         } else {
+             System.out.println("erro, valor nao disponivel na conta");
+         }
+    }
+
+    @Override
+    public String toString() {
+        return "SavingsAccount{" +
+                "InterestRate=" + InterestRate +
+                ", balance=" + balance +
+                '}';
+    }
 }
