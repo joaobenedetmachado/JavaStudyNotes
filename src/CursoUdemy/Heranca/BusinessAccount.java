@@ -28,4 +28,10 @@ public class BusinessAccount extends Account{
             System.out.println("valor acima do limite");
         }
     }
+
+    @Override
+    public void withdraw(double value) {
+        super.withdraw(value); // o super serve meio que para sobrepor um metodo porem adcionando algo a mais
+        balance -= 2;
+    }
 }
