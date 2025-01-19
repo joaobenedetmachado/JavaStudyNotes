@@ -1,6 +1,6 @@
 package CursoUdemy.Polimorfismo;
 
-public class Animal {
+public abstract class Animal {
     public void fazerSom() {
         System.out.println("Som generico de animal.");
     }

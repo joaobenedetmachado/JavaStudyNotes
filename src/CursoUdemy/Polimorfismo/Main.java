@@ -2,6 +2,8 @@ package CursoUdemy.Polimorfismo;
 
 public class Main {
     public static void main(String[] args) {
+
+        //Animal animal = new Animal(); // essa linha retorna um erro, pois a classe animal é uma classe abstrata.
         gato gato = new gato();
         cachorro cachorro = new cachorro();
 
