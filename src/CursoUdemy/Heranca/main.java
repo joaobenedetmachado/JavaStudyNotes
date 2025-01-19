@@ -1,5 +1,8 @@
 package CursoUdemy.Heranca;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class main {
     public static void main(String[] args) {
         Account a1 = new Account(123, "João machado", 1200);
@@ -21,6 +24,19 @@ public class main {
         System.out.println(a1);
         a3.withdraw(100);
         System.out.println(a3);
+
+        List<Account> lista = new ArrayList<>();
+
+        lista.add(new SavingsAccount(1001, "maria", 500, 0.01));
+        lista.add(new SavingsAccount(1002, "lara", 1000.10, 0.12));
+
+        double sum = 0.0;
+        for(Account acc : lista) {
+            sum += acc.getBalance();
+        }
+
+        System.out.println("Total balance: " + sum);
+
 
     }
 }
