@@ -17,7 +17,7 @@ public class BlocoFinally {
             }
         } catch (FileNotFoundException e ) {
             System.out.println("Erro ao capturar arquivo " + e.getMessage());
-        } finally {
+        } finally { // o bloco finally serve para que algo seja executado mesmo se há ou nao um catch de um erro
             if (sc != null) {
                 sc.close();
             }
