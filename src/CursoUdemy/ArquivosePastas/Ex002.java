@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Ex002 {
-    String path = "C:/Users/Juaow/Documents/JavaStudyNotes/src/CursoUdemy/TryCatch/in.txt";
+    /*String path = "C:/Users/Juaow/Documents/JavaStudyNotes/src/CursoUdemy/TryCatch/in.txt";
 
     FileReader fr = null;
     BufferedReader br = null;
@@ -29,5 +29,5 @@ public class Ex002 {
         System.out.println(e.getMessage());
     } finally {
         System.out.println("ACABOU");
-    }
+    }*/
 }
