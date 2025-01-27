@@ -14,7 +14,6 @@ public class Carro {
         return dias * valorDiario;
     }
 
-
     public Carro(String modelo, double tempo) {
         this.modelo = modelo;
         this.tempo = tempo;
