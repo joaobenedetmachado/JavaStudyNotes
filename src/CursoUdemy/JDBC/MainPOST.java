@@ -23,7 +23,7 @@ public class MainPOST {
                         "INSERT INTO seller" +
                             "(Name, Email, BirthDate, BaseSalary, DepartmentID)" +
                             "values(?, ?, ?, ?, ?)",
-                    PreparedStatement.RETURN_GENERATED_KEYS);
+                    PreparedStatement.RETURN_GENERATED_KEYS); // essa linha serve para retornar o id, ja que ele vai automatico
 
             System.out.println("Your name: ");
             String nome = sc.nextLine();
