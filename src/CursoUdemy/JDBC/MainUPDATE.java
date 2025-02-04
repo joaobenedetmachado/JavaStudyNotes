@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class MainUPDATE {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         Scanner sc = new Scanner(System.in);
 
@@ -34,6 +34,8 @@ public class MainUPDATE {
             throw new RuntimeException(e);
         } finally {
             System.out.println("Feito");
+            DB.closeStatament(ps);
+            DB.closeConnection();
         }
 
 
