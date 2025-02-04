@@ -1,10 +1,7 @@
 package CursoUdemy.JDBC;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.SQLOutput;
+import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
@@ -25,8 +22,8 @@ public class MainPOST {
             ps = conn.prepareStatement(
                         "INSERT INTO seller" +
                             "(Name, Email, BirthDate, BaseSalary, DepartmentID)" +
-                            "values(?, ?, ?, ?, ?)"
-            );
+                            "values(?, ?, ?, ?, ?)",
+                    PreparedStatement.RETURN_GENERATED_KEYS);
 
             System.out.println("Your name: ");
             String nome = sc.nextLine();
@@ -46,6 +43,11 @@ public class MainPOST {
             ps.setDate(3, new java.sql.Date(sdf.parse(date).getTime()));
             ps.setDouble(4, baseSalary);
             ps.setInt(5, did);
+            ResultSet rs = ps.getGeneratedKeys();
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                System.out.println("ID : " + id );
+            }
 
             int rowAffected = ps.executeUpdate();
 
