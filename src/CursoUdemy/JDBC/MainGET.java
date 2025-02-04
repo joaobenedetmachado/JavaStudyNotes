@@ -1,13 +1,12 @@
 package CursoUdemy.JDBC;
 
-import javax.swing.plaf.nimbus.State;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Main {
+public class MainGET {
     public static void main(String[] args) throws SQLException, IOException {
 
         //Connection conn = DB.getConnection();
