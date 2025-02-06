@@ -3,6 +3,7 @@ package CursoUdemy.JDBC;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -23,6 +24,8 @@ public class MainDELETE {
             ps = conn.prepareStatement("DELETE FROM seller where id = ?");
 
             ps.setInt(1, id);
+            ResultSet rs = ps.getGeneratedKeys();
+            System.out.println(rs);
 
             ps.executeUpdate();
 
