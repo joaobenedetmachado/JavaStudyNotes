@@ -12,13 +12,13 @@ public class DB{
 
     public static Connection getConnection() throws IOException, SQLException {
         if (conn == null) {
-try {
-    Properties props = loadProperties();
-    String url = props.getProperty("dburl");
-    conn = DriverManager.getConnection(url, props);
-} catch (SQLException e) {
-    throw new DbException(e.getMessage());
-}
+            try {
+                Properties props = loadProperties();
+                String url = props.getProperty("dburl");
+                conn = DriverManager.getConnection(url, props);
+            } catch (SQLException e) {
+                throw new DbException(e.getMessage());
+            }
         }
         return conn;
     }
