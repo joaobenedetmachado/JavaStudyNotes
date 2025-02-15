@@ -19,7 +19,6 @@ public class Duplicates {
                 NewArray.add(mainArray.get(i));
             }
         }
-
         System.out.println(NewArray);
     }
 }
