@@ -1,4 +1,4 @@
-package CursoUdemy.Heranca;
+package HomeStudies.CursoUdemy.Heranca;
 
 public class Account {
     private Integer number;

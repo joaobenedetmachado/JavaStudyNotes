@@ -1,4 +1,4 @@
-package CursoUdemy.Heranca;
+package HomeStudies.CursoUdemy.Heranca;
 
 import java.util.ArrayList;
 import java.util.List;
