@@ -17,6 +17,7 @@ public class Duplicates {
         for (int i = 0; i < mainArray.size(); i++) {
             if (!NewArray.contains(mainArray.get(i))) {
                 NewArray.add(mainArray.get(i));
+
             }
         }
         System.out.println(NewArray);
