@@ -1,11 +1,32 @@
 package CourseStudies.Exercicies.Methods;
 
+import java.util.Scanner;
+
 public class Ex005 {
     public static void main(String[] args) {
-        System.out.printf("Exercicio7 - Construir um programa em JAVA que contenha um método, que leia os dados de 50 funcionários. A partir dos dados de entrada: nome, setor e salário,  verificar o total de funcionários de cada setor.\n" +
-                "Setor da Empresa\t\t\n" +
-                "Almoxarifado\t\t\n" +
-                "Produção\n" +
-                "Contabilidade\n");
+        Scanner sc = new Scanner(System.in);
+
+        int i = 0;
+        int menorDeIdade = 0;
+        int maiorDeIdade = 0;
+        while (i<3) {
+            i++;
+
+            Integer idade = sc.nextInt();
+
+            if (VerificarIdade(idade).equals("MaiorDeIdade")) {
+                maiorDeIdade++;
+            } else {
+                menorDeIdade++;
+            }
+
+        }
+
+    }
+
+    public static String VerificarIdade(Integer idade) {
+        if (idade >= 18) {
+            return "MaiorDeIdade";
+        } return "MenorDeIdade";
     }
 }
