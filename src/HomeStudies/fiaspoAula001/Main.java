@@ -16,5 +16,11 @@ public class Main {
         String frase = "Ola meu nome é joao";
         char quartaLetra = frase.charAt(3);
 
+        char letraTeste = 'a';
+
+        char letraResultado = letraTeste++;
+
+        System.out.println(letraResultado);
+
     }
 }
