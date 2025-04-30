@@ -4,23 +4,56 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #4a90e2;
+    --background-color: #5e5e5e;
+    --text-color: #333;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --transition-speed: 0.3s;
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #f0f0f0;
-    font-family: Arial, sans-serif;
+    background: var(--background-color);
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.quick-view {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.quick-view-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.quick-view-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px var(--shadow-color);
 }
 
 .book-container {
     perspective: 2000px;
+    padding: 40px;
 }
 
 .book {
     position: relative;
     width: 400px;
-    height: 600px;
+    height: 517px;
     transform-style: preserve-3d;
     transition: transform 1s;
 }
@@ -30,21 +63,37 @@ body {
     width: 100%;
     height: 100%;
     background: white;
-    border: 1px solid #ccc;
+    border: none;
     transform-origin: left;
-    transition: transform 1s;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .page-content {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    text-align: center;
+    padding: 0;
+    background: white;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+.page-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
 }
 
 .cover {
@@ -63,6 +112,99 @@ body {
     object-fit: contain;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity var(--transition-speed);
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--shadow-color);
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: color var(--transition-speed);
+}
+
+.close-modal:hover {
+    color: var(--secondary-color);
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.carousel-container {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform var(--transition-speed);
+}
+
+.carousel-slide img {
+    max-width: 90%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.carousel-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-speed), background-color var(--transition-speed);
+}
+
+.carousel-btn:hover {
+    background: var(--secondary-color);
+    transform: scale(1.1);
+}
+
 /* Dynamic page positioning */
 .page {
     transform: rotateY(0deg);
@@ -79,4 +221,8 @@ body {
 .page.previous {
     z-index: 0;
     transform: rotateY(-180deg);
+}
+
+.page.previous .page-content {
+    transform: none;
 } 

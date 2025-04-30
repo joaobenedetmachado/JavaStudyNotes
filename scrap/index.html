@@ -5,47 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Livro de Imagens</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <div class="quick-view">
+        <button class="quick-view-btn" title="Ver todas as imagens">
+            <i class="fas fa-images"></i>
+        </button>
+    </div>
+
     <div class="book-container">
         <div class="book">
             <div class="page">
                 <div class="page-content">
-                    <img src="https://via.placeholder.com/400x600" alt="Imagem 1">
+                    <img src="images/capa.png" alt="Imagem 1">
                 </div>
             </div>
             <div class="page">
                 <div class="page-content">
-                    <img src="https://via.placeholder.com/400x600" alt="Imagem 2">
+                    <img src="images/page1.png" alt="Imagem 2">
                 </div>
             </div>
             <div class="page">
                 <div class="page-content">
-                    <img src="https://via.placeholder.com/400x600" alt="Imagem 3">
+                    <img src="images/page2.png" alt="Imagem 3">
                 </div>
             </div>
             <div class="page">
                 <div class="page-content">
-                    <img src="https://via.placeholder.com/400x600" alt="Imagem 4">
+                    <img src="images/page3.png" alt="Imagem 4">
                 </div>
             </div>
             <div class="page">
                 <div class="page-content">
-                    <img src="https://via.placeholder.com/400x600" alt="Imagem 5">
-                </div>
-            </div>
-            <div class="page">
-                <div class="page-content">
-                    <img src="https://via.placeholder.com/400x600" alt="Imagem 6">
-                </div>
-            </div>
-            <div class="page">
-                <div class="page-content">
-                    <img src="sua-imagem.jpg" alt="Nova Imagem">
+                    <img src="images/page4.png" alt="Imagem 4">
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="carousel">
+                <button class="carousel-btn prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel-container"></div>
+                <button class="carousel-btn next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html> 
