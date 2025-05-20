@@ -13,9 +13,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.querySelector('.carousel-btn.next');
     let currentSlide = 0;
 
+    // Funções do livro
+    function updatePageStates() {
+        pages.forEach((page) => {
+            const pageNumber = parseInt(page.dataset.page);
+            page.classList.remove('active', 'next', 'previous');
+            
+            if (pageNumber === currentPage) {
+                page.classList.add('active');
+            } else if (pageNumber === currentPage + 1) {
+                page.classList.add('next');
+            } else if (pageNumber < currentPage) {
+                page.classList.add('previous');
+            }
+        });
+    }
+
     // Inicializar carrossel
     function initializeCarousel() {
-        const images = Array.from(document.querySelectorAll('.page img')).map(img => img.src);
+        const images = Array.from(document.querySelectorAll('.page-content img'))
+            .filter(img => img.src)
+            .map(img => img.src);
+        
         carouselContainer.innerHTML = '';
         
         images.forEach((src, index) => {
@@ -32,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Atualizar slides do carrossel
     function updateCarousel() {
         const slides = document.querySelectorAll('.carousel-slide');
         slides.forEach((slide, index) => {
@@ -40,7 +58,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Controles do carrossel
+    // Event Listeners
+    pages.forEach((page) => {
+        page.addEventListener('click', () => {
+            const pageNumber = parseInt(page.dataset.page);
+            if (pageNumber === currentPage && currentPage < pages.length - 1) {
+                currentPage++;
+                updatePageStates();
+            }
+        });
+    });
+
     prevBtn.addEventListener('click', () => {
         if (currentSlide > 0) {
             currentSlide--;
@@ -55,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Controles do modal
     quickViewBtn.addEventListener('click', () => {
         modal.classList.add('active');
         initializeCarousel();
@@ -74,9 +101,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Navegação por teclado para o carrossel
     document.addEventListener('keydown', (e) => {
-        if (modal.classList.contains('active')) {
+        if (!modal.classList.contains('active')) {
+            if (e.key === 'ArrowRight' && currentPage < pages.length - 1) {
+                currentPage++;
+                updatePageStates();
+            } else if (e.key === 'ArrowLeft' && currentPage > 0) {
+                currentPage--;
+                updatePageStates();
+            }
+        } else {
             if (e.key === 'ArrowLeft' && currentSlide > 0) {
                 currentSlide--;
                 updateCarousel();
@@ -90,41 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Funções do livro original
-    function updatePageStates() {
-        pages.forEach((page, index) => {
-            page.classList.remove('active', 'next', 'previous');
-            
-            if (index === currentPage) {
-                page.classList.add('active');
-            } else if (index === currentPage + 1) {
-                page.classList.add('next');
-            } else if (index < currentPage) {
-                page.classList.add('previous');
-            }
-        });
-    }
-
+    // Inicializar estado
     updatePageStates();
-
-    pages.forEach((page, index) => {
-        page.addEventListener('click', () => {
-            if (index === currentPage && currentPage < pages.length - 1) {
-                currentPage++;
-                updatePageStates();
-            }
-        });
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (!modal.classList.contains('active')) {
-            if (e.key === 'ArrowRight' && currentPage < pages.length - 1) {
-                currentPage++;
-                updatePageStates();
-            } else if (e.key === 'ArrowLeft' && currentPage > 0) {
-                currentPage--;
-                updatePageStates();
-            }
-        }
-    });
 }); 
