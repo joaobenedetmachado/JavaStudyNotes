@@ -27,11 +27,15 @@ public class Main {
         listas.add(new Moto("Twister 250", 2016, 250));
         listas.add(new Moto("Harley 883", 2014, 883));
         listas.add(new Moto("Pop 100", 2012, 100));
+//
+//        for (int i = 0; i < listas.size(); i++) {
+//            if (listas.get(i).getAno() < 2015) {
+//                System.out.println(listas.get(i));
+//            }
+//        }
 
         for (int i = 0; i < listas.size(); i++) {
-            if (listas.get(i).getAno() < 2015) {
-                System.out.println(listas.get(i));
-            }
+              System.out.println(listas.get(i));
         }
 
 
@@ -51,6 +55,20 @@ public class Main {
 
         System.out.println(maiorAno);
         System.out.println(menorAno);
+
+        System.out.println("Qual deseja remover? {POR NOME}");
+        String escolha = "Gol";
+
+        for (int i = 0; i < listas.size(); i++) {
+            if (listas.get(i).getModelo() == escolha) {
+                listas.remove(listas.get(i));
+            }
+        }
+        for (int i = 0; i < listas.size(); i++) {
+            System.out.println(listas.get(i));
+        }
+
+
 
     }
 
